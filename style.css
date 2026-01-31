@@ -619,3 +619,161 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+
+/* ============================================
+   TITLE TYPING ANIMATION STYLES
+   ============================================ */
+
+.title-animation-container {
+    position: relative;
+    margin-bottom: 25px;
+    min-height: 60px;
+    display: inline-block;
+}
+
+#typing-title {
+    color: #aaa;
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    display: inline;
+    font-weight: 300;
+    font-family: 'Ubuntu Mono', monospace;
+    min-height: 1.8rem;
+}
+
+.title-cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1.8rem;
+    background-color: var(--terminal-text);
+    margin-left: 2px;
+    animation: titleBlink 0.8s infinite;
+    vertical-align: text-bottom;
+}
+
+@keyframes titleBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Title typing effect with colors */
+.title-devops {
+    color: var(--accent-blue);
+    font-weight: 500;
+}
+
+.title-engineer {
+    color: var(--terminal-text);
+    font-weight: 500;
+}
+
+.title-linux {
+    color: var(--accent-yellow);
+    font-weight: 500;
+}
+
+.title-specialist {
+    color: var(--accent-red);
+    font-weight: 500;
+}
+
+.title-ampersand {
+    color: #aaa;
+    font-weight: 300;
+}
+
+/* Glitch effect for title */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+        text-shadow: 0 0 0 var(--terminal-text);
+    }
+    20% {
+        transform: translate(-2px, 2px);
+        text-shadow: 2px -2px 0 var(--accent-red);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+        text-shadow: -2px 2px 0 var(--accent-blue);
+    }
+    60% {
+        transform: translate(2px, 2px);
+        text-shadow: 2px 2px 0 var(--terminal-text);
+    }
+    80% {
+        transform: translate(2px, -2px);
+        text-shadow: -2px -2px 0 var(--accent-yellow);
+    }
+    100% {
+        transform: translate(0);
+        text-shadow: 0 0 0 var(--terminal-text);
+    }
+}
+
+.glitch-effect {
+    animation: glitch 0.3s linear;
+}
+
+/* Terminal-like blinking for completed title */
+.title-complete {
+    position: relative;
+}
+
+.title-complete::after {
+    content: '_';
+    color: var(--terminal-text);
+    animation: pulse 1.5s infinite;
+    margin-left: 2px;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Matrix effect styles */
+.matrix-char {
+    color: var(--terminal-text);
+    font-weight: bold;
+}
+
+.matrix-char.scrambling {
+    color: #00cc00;
+    animation: scramble 0.1s infinite;
+}
+
+@keyframes scramble {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.3; }
+}
+
+/* Responsive adjustments for title */
+@media (max-width: 768px) {
+    #typing-title {
+        font-size: 1.5rem;
+    }
+    
+    .title-cursor {
+        height: 1.5rem;
+    }
+    
+    .title-animation-container {
+        min-height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    #typing-title {
+        font-size: 1.3rem;
+    }
+    
+    .title-cursor {
+        height: 1.3rem;
+    }
+    
+    .title-animation-container {
+        min-height: 45px;
+    }
+}
