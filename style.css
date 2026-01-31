@@ -1,0 +1,621 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --terminal-bg: #0c0c0c;
+    --terminal-text: #00ff00;
+    --terminal-header: #003300;
+    --accent-blue: #0066cc;
+    --accent-red: #cc3333;
+    --accent-yellow: #cccc00;
+    --light-bg: #1a1a1a;
+    --card-bg: #222;
+}
+
+body {
+    background-color: #111;
+    color: #ddd;
+    line-height: 1.6;
+    overflow-x: hidden;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* Terminal Header */
+.terminal-header {
+    background-color: var(--terminal-header);
+    color: var(--terminal-text);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--terminal-text);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.logo i {
+    color: var(--terminal-text);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--terminal-text);
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 3px;
+    transition: all 0.3s;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.1rem;
+}
+
+.nav-links a:hover {
+    background-color: var(--terminal-text);
+    color: var(--terminal-header);
+    transform: translateY(-2px);
+}
+
+.mobile-menu-btn {
+    display: none;
+    color: var(--terminal-text);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Profile Section */
+.profile-section {
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.hexagon-profile {
+    position: relative;
+    width: 300px;
+    height: 345px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: linear-gradient(45deg, var(--terminal-text), var(--accent-blue));
+    padding: 10px;
+    flex-shrink: 0;
+}
+
+.hexagon-inner {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hexagon-image {
+    width: 100%;
+    height: 100%;
+}
+
+.hexagon-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(120%);
+    transition: filter 0.5s;
+}
+
+.hexagon-image:hover img {
+    filter: grayscale(0%) contrast(100%);
+}
+
+.profile-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.profile-info h1 {
+    color: var(--terminal-text);
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.profile-info h2 {
+    color: #aaa;
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.contact-info {
+    margin-bottom: 25px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.contact-info i {
+    color: var(--terminal-text);
+    width: 20px;
+}
+
+.profile-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #bbb;
+}
+
+/* Terminal Container */
+.terminal-container {
+    background-color: var(--terminal-bg);
+    color: var(--terminal-text);
+    margin: 40px auto;
+    max-width: 1200px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.25);
+    border: 1px solid #333;
+}
+
+.terminal-title-bar {
+    background-color: #222;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #444;
+}
+
+.terminal-button {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.red { background-color: var(--accent-red); }
+.yellow { background-color: var(--accent-yellow); }
+.green { background-color: var(--terminal-text); }
+
+.terminal-title {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.2rem;
+}
+
+.terminal-content {
+    padding: 30px;
+    min-height: 200px;
+}
+
+/* Typing effect */
+.typing-line {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.prompt {
+    color: var(--accent-blue);
+    margin-right: 10px;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 22px;
+    background-color: var(--terminal-text);
+    margin-left: 5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* Services Section */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.service-card {
+    background-color: var(--card-bg);
+    border-left: 5px solid var(--terminal-text);
+    padding: 25px;
+    border-radius: 0 8px 8px 0;
+    transition: all 0.3s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.15);
+    border-left-color: var(--accent-blue);
+}
+
+.service-icon {
+    font-size: 2.8rem;
+    color: var(--terminal-text);
+    margin-bottom: 20px;
+}
+
+.service-card h3 {
+    color: var(--terminal-text);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.service-card p {
+    color: #bbb;
+    line-height: 1.7;
+    flex-grow: 1;
+}
+
+/* Skills Section */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.skill-item {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border-top: 4px solid var(--accent-blue);
+}
+
+.skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.1rem;
+}
+
+.learning {
+    font-size: 0.8rem;
+    color: var(--accent-yellow);
+    font-style: italic;
+}
+
+.skill-bar {
+    height: 12px;
+    background-color: #333;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.skill-level {
+    height: 100%;
+    background: linear-gradient(90deg, var(--terminal-text), #00cc00);
+    border-radius: 6px;
+}
+
+.tools-header {
+    color: var(--terminal-text);
+    margin: 40px 0 20px;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.5rem;
+}
+
+.tools-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.tool-tag {
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Ubuntu Mono', monospace;
+    border: 1px solid #444;
+    transition: all 0.3s;
+}
+
+.tool-tag:hover {
+    background-color: var(--terminal-text);
+    color: #000;
+    transform: translateY(-3px);
+}
+
+.view-tools {
+    margin-top: 25px;
+    font-size: 1.1rem;
+}
+
+/* Contact Form */
+.contact-form {
+    display: grid;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    color: var(--terminal-text);
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.1rem;
+}
+
+.form-control {
+    background-color: #222;
+    border: 2px solid #444;
+    color: var(--terminal-text);
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--terminal-text);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+.btn {
+    background-color: var(--terminal-text);
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn:hover {
+    background-color: #00cc00;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.3);
+}
+
+.form-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #003300;
+    color: var(--terminal-text);
+    border-radius: 5px;
+    display: none;
+    text-align: center;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.direct-contact {
+    margin-top: 40px;
+    padding: 25px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    border-left: 5px solid var(--accent-blue);
+}
+
+.direct-contact h3 {
+    color: var(--terminal-text);
+    margin-bottom: 20px;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1.5rem;
+}
+
+.direct-contact p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+}
+
+.direct-contact i {
+    color: var(--terminal-text);
+    width: 20px;
+}
+
+/* Section Headers */
+.section-header {
+    color: var(--terminal-text);
+    margin: 0 0 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--terminal-text);
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 2rem;
+}
+
+/* Hidden content for interactivity */
+.hidden-content {
+    display: none;
+}
+
+.command {
+    color: var(--accent-yellow);
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.command:hover {
+    color: var(--terminal-text);
+}
+
+/* Footer */
+.footer {
+    background-color: #0a0a0a;
+    color: #aaa;
+    padding: 50px 20px;
+    margin-top: 70px;
+    border-top: 2px solid #333;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-content p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.social-links a {
+    color: #aaa;
+    font-size: 1.8rem;
+    transition: all 0.3s;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #222;
+}
+
+.social-links a:hover {
+    color: var(--terminal-text);
+    transform: translateY(-5px);
+    background-color: #333;
+}
+
+.footer-note {
+    font-size: 1rem;
+    color: #777;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .profile-container {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .contact-info p {
+        justify-content: center;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .terminal-container {
+        margin: 25px 15px;
+    }
+    
+    .services-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-info h1 {
+        font-size: 2.2rem;
+    }
+    
+    .profile-info h2 {
+        font-size: 1.2rem;
+    }
+    
+    .hexagon-profile {
+        width: 250px;
+        height: 288px;
+    }
+    
+    .section-header {
+        font-size: 1.7rem;
+    }
+    
+    .terminal-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .terminal-header {
+        padding: 15px 20px;
+    }
+    
+    .logo span {
+        font-size: 1.2rem;
+    }
+    
+    .hexagon-profile {
+        width: 200px;
+        height: 230px;
+    }
+    
+    .profile-info h1 {
+        font-size: 1.8rem;
+    }
+    
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+}
