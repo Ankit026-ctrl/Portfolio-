@@ -289,3 +289,199 @@ window.addEventListener('resize', function() {
         navLinks.style.display = 'none';
     }
 });
+
+
+
+// ============================================
+// TITLE TYPING ANIMATION
+// ============================================
+
+const titleElement = document.getElementById('typing-title');
+const titleText = "DevOps Engineer & Linux Specialist";
+let titleIndex = 0;
+let titleSpeed = 100; // typing speed in ms
+let isTitleDeleting = false;
+let titlePause = 1500; // pause at the end
+let titleGlitchInterval;
+let titleAnimationActive = true;
+
+// Matrix-style title animation
+function matrixTitleEffect() {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$+-*/=%\"'#&_(),.;:?!\\|{}<>[]^~";
+    const finalText = "DevOps Engineer & Linux Specialist";
+    let currentText = "";
+    let position = 0;
+    let iterations = 0;
+    const maxIterations = 3; // Number of scrambles before revealing correct letter
+    
+    function scramble() {
+        if (!titleAnimationActive) return;
+        
+        if (position >= finalText.length) {
+            // Title complete, add periodic glitch
+            titleElement.innerHTML = finalText
+                .replace(/DevOps/g, '<span class="title-devops">DevOps</span>')
+                .replace(/Engineer/g, '<span class="title-engineer">Engineer</span>')
+                .replace(/Linux/g, '<span class="title-linux">Linux</span>')
+                .replace(/Specialist/g, '<span class="title-specialist">Specialist</span>')
+                .replace(/&/g, '<span class="title-ampersand">&</span>');
+            titleElement.classList.add('title-complete');
+            
+            // Add glitch effect every 5 seconds
+            if (!titleGlitchInterval) {
+                titleGlitchInterval = setInterval(() => {
+                    titleElement.classList.add('glitch-effect');
+                    setTimeout(() => {
+                        titleElement.classList.remove('glitch-effect');
+                    }, 300);
+                }, 5000);
+            }
+            return;
+        }
+        
+        if (iterations < maxIterations) {
+            // Scramble current position
+            let scrambled = currentText;
+            for (let i = position; i < finalText.length; i++) {
+                const randomChar = chars[Math.floor(Math.random() * chars.length)];
+                scrambled += `<span class="matrix-char scrambling">${randomChar}</span>`;
+            }
+            
+            // Apply styling to already revealed characters
+            let styledCurrent = currentText
+                .replace(/DevOps/g, '<span class="title-devops">DevOps</span>')
+                .replace(/Engineer/g, '<span class="title-engineer">Engineer</span>')
+                .replace(/Linux/g, '<span class="title-linux">Linux</span>')
+                .replace(/Specialist/g, '<span class="title-specialist">Specialist</span>')
+                .replace(/&/g, '<span class="title-ampersand">&</span>');
+            
+            titleElement.innerHTML = styledCurrent + scrambled;
+            
+            iterations++;
+            setTimeout(scramble, 50);
+        } else {
+            // Reveal correct character
+            currentText += finalText[position];
+            position++;
+            iterations = 0;
+            
+            // Show current text with correct characters revealed
+            titleElement.innerHTML = currentText
+                .replace(/DevOps/g, '<span class="title-devops">DevOps</span>')
+                .replace(/Engineer/g, '<span class="title-engineer">Engineer</span>')
+                .replace(/Linux/g, '<span class="title-linux">Linux</span>')
+                .replace(/Specialist/g, '<span class="title-specialist">Specialist</span>')
+                .replace(/&/g, '<span class="title-ampersand">&</span>');
+            
+            // Continue with next character
+            setTimeout(scramble, Math.random() * 100 + 50);
+        }
+    }
+    
+    // Clear any existing interval
+    if (titleGlitchInterval) {
+        clearInterval(titleGlitchInterval);
+        titleGlitchInterval = null;
+    }
+    
+    titleAnimationActive = true;
+    scramble();
+}
+
+// Simple typing animation
+function typeTitleSimple() {
+    if (!titleAnimationActive) return;
+    
+    if (titleIndex <= titleText.length) {
+        // Typing forward
+        displayTitleWithStyles(titleText.substring(0, titleIndex));
+        titleIndex++;
+        setTimeout(typeTitleSimple, titleSpeed);
+    } else {
+        // Add glitch effect when complete
+        titleElement.classList.add('glitch-effect');
+        setTimeout(() => {
+            titleElement.classList.remove('glitch-effect');
+        }, 300);
+        
+        // Add a subtle glitch effect periodically
+        if (!titleGlitchInterval) {
+            titleGlitchInterval = setInterval(() => {
+                titleElement.classList.add('glitch-effect');
+                setTimeout(() => {
+                    titleElement.classList.remove('glitch-effect');
+                }, 100);
+            }, 5000);
+        }
+        
+        titleElement.classList.add('title-complete');
+    }
+}
+
+function displayTitleWithStyles(text) {
+    // Apply different colors to different parts of the title
+    let styledText = text
+        .replace(/DevOps/g, '<span class="title-devops">DevOps</span>')
+        .replace(/Engineer/g, '<span class="title-engineer">Engineer</span>')
+        .replace(/Linux/g, '<span class="title-linux">Linux</span>')
+        .replace(/Specialist/g, '<span class="title-specialist">Specialist</span>')
+        .replace(/&/g, '<span class="title-ampersand">&</span>');
+    
+    titleElement.innerHTML = styledText;
+}
+
+// Initialize title animation
+function initTitleAnimation() {
+    // Reset title
+    titleElement.innerHTML = '';
+    titleElement.classList.remove('title-complete', 'glitch-effect');
+    titleIndex = 0;
+    titleAnimationActive = true;
+    
+    // Clear any existing intervals
+    if (titleGlitchInterval) {
+        clearInterval(titleGlitchInterval);
+        titleGlitchInterval = null;
+    }
+    
+    // Start matrix effect (most impressive)
+    matrixTitleEffect();
+    
+    // Uncomment for simple typing effect instead:
+    // typeTitleSimple();
+}
+
+// ============================================
+// EXISTING CODE (keep all your existing functions)
+// ============================================
+
+// ... (your existing JavaScript code remains here)
+
+// Initialize effects and event listeners when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Start title animation
+    initTitleAnimation();
+    
+    // Start typing effects (existing)
+    typeEffect();
+    footerTypeEffect();
+    
+    // Attach command listeners (existing)
+    attachCommandListeners();
+    
+    // ... (rest of your existing initialization code)
+});
+
+// Pause animation when user is not viewing the page
+document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+        titleAnimationActive = false;
+        if (titleGlitchInterval) {
+            clearInterval(titleGlitchInterval);
+            titleGlitchInterval = null;
+        }
+    } else {
+        // Restart animation when page becomes visible again
+        setTimeout(initTitleAnimation, 500);
+    }
+});
