@@ -1,1 +1,355 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankith Kumar | DevOps Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Terminal Header -->
+    <header class="terminal-header">
+        <div class="logo">
+            <i class="fas fa-terminal"></i>
+            <span>ankith@devops:~$</span>
+        </div>
+        <nav class="nav-links">
+            <a href="#about">about</a>
+            <a href="#services">services</a>
+            <a href="#skills">skills</a>
+            <a href="#contact">contact</a>
+        </nav>
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Profile Section -->
+    <section class="profile-section" id="about">
+        <div class="terminal-container">
+            <div class="terminal-title-bar">
+                <div class="terminal-button red"></div>
+                <div class="terminal-button yellow"></div>
+                <div class="terminal-button green"></div>
+                <div class="terminal-title">whoami.sh</div>
+            </div>
+            
+            <div class="terminal-content">
+                <div class="profile-container">
+                    <div class="hexagon-profile">
+                        <div class="hexagon-inner">
+                            <div class="hexagon-image">
+                                <!-- Add your profile photo here -->
+                                <img src="profile.jpg" alt="Ankith Kumar" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-info">
+                        <h1>Ankith Kumar</h1>
+                        <h2>DevOps Engineer & Linux Specialist</h2>
+                        <div class="contact-info">
+                            <p><i class="fas fa-envelope"></i> ankithk252@gmail.com</p>
+                            <p><i class="fas fa-phone"></i> +91 8686803953</p>
+                            <p><i class="fas fa-map-marker-alt"></i> India</p>
+                        </div>
+                        <p class="profile-description">
+                            Passionate DevOps engineer with expertise in Linux systems, cloud infrastructure, 
+                            and automation. Specializing in creating efficient, scalable solutions for web hosting, 
+                            domain management, and CI/CD pipelines.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Terminal -->
+    <main class="terminal-container">
+        <div class="terminal-title-bar">
+            <div class="terminal-button red"></div>
+            <div class="terminal-button yellow"></div>
+            <div class="terminal-button green"></div>
+            <div class="terminal-title">portfolio.sh</div>
+        </div>
+        
+        <div class="terminal-content" id="terminal-content">
+            <div class="typing-line">
+                <span class="prompt">ankith@devops:~$</span>
+                <span id="typing-text"></span>
+                <span class="cursor"></span>
+            </div>
+            <div id="terminal-output">
+                <p>Welcome to my Linux-themed DevOps portfolio.</p>
+                <p>Type <span class="command" data-command="help">'help'</span> to see available commands.</p>
+                <p>Or scroll down to explore my services and skills.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Services Section -->
+    <section class="terminal-container" id="services">
+        <div class="terminal-title-bar">
+            <div class="terminal-button red"></div>
+            <div class="terminal-button yellow"></div>
+            <div class="terminal-button green"></div>
+            <div class="terminal-title">services.sh</div>
+        </div>
+        
+        <div class="terminal-content">
+            <h2 class="section-header">DevOps Services Offered</h2>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Domain & Email Management</h3>
+                    <p>Complete domain registration, DNS configuration, and professional email setup with advanced security and management features.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Web Hosting Solutions</h3>
+                    <p>Secure, scalable hosting environments with 99.9% uptime, automated backups, and 24/7 monitoring.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>SSL Certificates & Security</h3>
+                    <p>Implementation, configuration and management of SSL certificates with regular security audits and vulnerability assessments.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3>CI/CD Pipeline Automation</h3>
+                    <p>Design and implementation of automated CI/CD pipelines for rapid, reliable software delivery using Jenkins, GitLab CI, or GitHub Actions.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Infrastructure</h3>
+                    <p>AWS, Azure, and GCP infrastructure design and management with Infrastructure as Code (Terraform, CloudFormation).</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-docker"></i>
+                    </div>
+                    <h3>Containerization & Orchestration</h3>
+                    <p>Docker containerization and Kubernetes orchestration for scalable, resilient application deployment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="terminal-container" id="skills">
+        <div class="terminal-title-bar">
+            <div class="terminal-button red"></div>
+            <div class="terminal-button yellow"></div>
+            <div class="terminal-button green"></div>
+            <div class="terminal-title">skills.sh</div>
+        </div>
+        
+        <div class="terminal-content">
+            <h2 class="section-header">Technical Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Linux Administration</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Cloud Platforms (AWS/Azure)</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 70%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Docker & Containerization</span>
+                        <span>65%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 65%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>CI/CD & Automation</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Kubernetes</span>
+                        <span>50% <span class="learning">(learning)</span></span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 50%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Terraform (IaC)</span>
+                        <span>60%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 60%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Ansible</span>
+                        <span>55%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 55%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>Monitoring & Security</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hidden-content" id="skills-details">
+                <h3 class="tools-header">Tools & Technologies:</h3>
+                <div class="tools-container">
+                    <span class="tool-tag">Terraform</span>
+                    <span class="tool-tag">Ansible</span>
+                    <span class="tool-tag">Jenkins</span>
+                    <span class="tool-tag">GitLab CI</span>
+                    <span class="tool-tag">Docker</span>
+                    <span class="tool-tag">Kubernetes</span>
+                    <span class="tool-tag">AWS</span>
+                    <span class="tool-tag">Azure</span>
+                    <span class="tool-tag">Prometheus</span>
+                    <span class="tool-tag">Grafana</span>
+                    <span class="tool-tag">ELK Stack</span>
+                    <span class="tool-tag">NGINX</span>
+                    <span class="tool-tag">Git</span>
+                    <span class="tool-tag">Bash Scripting</span>
+                    <span class="tool-tag">Python</span>
+                </div>
+            </div>
+            <p class="view-tools">Click <span class="command" data-command="toggle-tools">here</span> to view detailed tools list.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="terminal-container" id="contact">
+        <div class="terminal-title-bar">
+            <div class="terminal-button red"></div>
+            <div class="terminal-button yellow"></div>
+            <div class="terminal-button green"></div>
+            <div class="terminal-title">contact.sh</div>
+        </div>
+        
+        <div class="terminal-content">
+            <h2 class="section-header">Get In Touch</h2>
+            <p>Interested in my DevOps services? Send me a message!</p>
+            
+            <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                    <label for="name">$ name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">$ email</label>
+                    <input type="email" id="email" class="form-control" placeholder="user@domain.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="service">$ service_needed</label>
+                    <select id="service" class="form-control" required>
+                        <option value="">Select a service</option>
+                        <option value="domain">Domain & Email Management</option>
+                        <option value="hosting">Web Hosting</option>
+                        <option value="ssl">SSL & Security</option>
+                        <option value="ci-cd">CI/CD Automation</option>
+                        <option value="cloud">Cloud Infrastructure</option>
+                        <option value="container">Containerization</option>
+                        <option value="other">Other DevOps Service</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">$ message</label>
+                    <textarea id="message" class="form-control" rows="5" placeholder="Describe your project or requirements..." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+            
+            <div id="form-message" class="form-message">
+                <p>Message sent successfully! I'll get back to you soon.</p>
+            </div>
+            
+            <div class="direct-contact">
+                <h3>Direct Contact</h3>
+                <p><i class="fas fa-envelope"></i> ankithk252@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +91 8686803953</p>
+                <p><i class="fas fa-map-marker-alt"></i> Available for remote work worldwide</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>ankith@devops-portfolio:~$ <span id="footer-typing"></span><span class="cursor"></span></p>
+            <p>&copy; 2023 Ankith Kumar. All systems operational.</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-dev"></i></a>
+            </div>
+            
+            <p class="footer-note">Connect with me for DevOps solutions, infrastructure management, and automation.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
